@@ -1,0 +1,17 @@
+.container {
+  padding: 32rpx;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.order-info {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #6b7280;
+}

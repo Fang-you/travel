@@ -1,0 +1,44 @@
+<view class="page">
+  <!-- 标题栏 -->
+  <view class="header">
+    <text class="header-title">我的订单</text>
+  </view>
+
+  <!-- 分类标签 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >
+      <text class="tab-text">{{item.name}}</text>
+      <view class="tab-indicator" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="order-list">
+      <order-card 
+        wx:for="{{filteredList}}" 
+        wx:key="id"
+        orderId="{{item.orderId}}"
+        image="{{item.image}}"
+        title="{{item.title}}"
+        date="{{item.date}}"
+        price="{{item.price}}"
+        status="{{item.status}}"
+        bindcancel="onOrderCancel"
+        binddelete="onOrderDelete"
+      ></order-card>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{filteredList.length === 0}}">
+      <image class="empty-icon" src="/images/icon_empty.png" mode="aspectFit"></image>
+      <text class="empty-text">暂无订单</text>
+    </view>
+  </scroll-view>
+</view>

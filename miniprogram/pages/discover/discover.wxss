@@ -1,0 +1,366 @@
+.page {
+  height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标题栏 */
+.header {
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24rpx);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #111827;
+}
+
+.header-icons {
+  display: flex;
+  gap: 24rpx;
+}
+
+.header-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* 内容区 */
+.content {
+  flex: 1;
+  height: 0;
+}
+
+/* 分类标签 */
+.tabs {
+  display: flex;
+  gap: 48rpx;
+  padding: 24rpx 40rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.tab-item.active .tab-text {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32rpx;
+  height: 8rpx;
+  background-color: #3b82f6;
+  border-radius: 8rpx;
+}
+
+/* 瀑布流卡片区域 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+  padding: 0 24rpx 48rpx;
+}
+
+/* 关于我们区域 */
+.about-section {
+  padding: 0 24rpx 48rpx;
+}
+
+.about-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.brand-logo-box {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.15);
+}
+
+.brand-logo {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.brand-name {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8rpx;
+}
+
+.brand-slogan {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.about-stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 32rpx 16rpx;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.stat-number {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #6b7280;
+}
+
+.about-card {
+  background-color: #ffffff;
+  padding: 28rpx;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.title-bar {
+  width: 6rpx;
+  height: 28rpx;
+  background: linear-gradient(180deg, #2563eb 0%, #3b82f6 100%);
+  border-radius: 3rpx;
+}
+
+.card-title text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.intro-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.intro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.intro-label {
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+.intro-value {
+  font-size: 26rpx;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 12rpx;
+  background-color: #f9fafb;
+  border-radius: 16rpx;
+  text-align: center;
+}
+
+.value-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 12rpx;
+}
+
+.value-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4rpx;
+}
+
+.value-desc {
+  font-size: 20rpx;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 28rpx;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6rpx;
+  top: 12rpx;
+  bottom: 12rpx;
+  width: 4rpx;
+  background: linear-gradient(180deg, #2563eb 0%, #93c5fd 100%);
+  border-radius: 2rpx;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 24rpx;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24rpx;
+  top: 6rpx;
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #2563eb;
+  border-radius: 50%;
+  border: 3rpx solid #dbeafe;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+}
+
+.timeline-date {
+  font-size: 22rpx;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.timeline-event {
+  font-size: 24rpx;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+}
+
+.contact-icon {
+  width: 32rpx;
+  height: 32rpx;
+  flex-shrink: 0;
+  margin-top: 2rpx;
+}
+
+.contact-text {
+  font-size: 24rpx;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.about-footer {
+  display: flex;
+  justify-content: center;
+  padding: 32rpx 0;
+}
+
+.copyright {
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+/* 特价区域 */
+.deals-section {
+  padding: 0 24rpx 48rpx;
+}
+
+.deals-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32rpx 0;
+  margin-bottom: 16rpx;
+}
+
+.deals-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 8rpx;
+}
+
+.deals-subtitle {
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.deals-list {
+  display: flex;
+  flex-direction: column;
+}

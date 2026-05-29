@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "order-card": "/components/order-card/order-card"
+  },
+  "navigationBarTitleText": "我的订单",
+  "navigationStyle": "custom"
+}

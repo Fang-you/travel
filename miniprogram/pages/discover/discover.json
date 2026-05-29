@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "discover-card": "/components/discover-card/discover-card",
+    "card": "/components/card/card"
+  },
+  "navigationBarTitleText": "发现",
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,66 @@
+<view class="page">
+  <!-- 商品信息 -->
+  <view class="product-section">
+    <image class="product-image" src="{{product.image}}" mode="aspectFill"></image>
+    <view class="product-info">
+      <text class="product-title">{{product.title}}</text>
+      <text class="product-desc">{{product.desc}}</text>
+      <view class="product-meta">
+        <text class="product-duration">{{product.duration}}</text>
+        <text class="product-count">{{product.count}}</text>
+      </view>
+      <view class="product-price">
+        <text class="price-symbol">¥</text>
+        <text class="price-value">{{product.price}}</text>
+        <text class="price-unit">/人</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 出行日期 -->
+  <view class="section">
+    <view class="section-title">选择出行日期</view>
+    <view class="date-list">
+      <view 
+        class="date-item {{selectedDate === item ? 'active' : ''}}" 
+        wx:for="{{dateList}}" 
+        wx:key="*this"
+        data-date="{{item}}"
+        bindtap="onDateSelect"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 购买数量 -->
+  <view class="section">
+    <view class="section-title">购买数量</view>
+    <view class="quantity-selector">
+      <view class="quantity-btn minus {{quantity <= 1 ? 'disabled' : ''}}" bindtap="onQuantityMinus">-</view>
+      <text class="quantity-value">{{quantity}}</text>
+      <view class="quantity-btn plus" bindtap="onQuantityPlus">+</view>
+    </view>
+  </view>
+
+  <!-- 联系人信息 -->
+  <view class="section">
+    <view class="section-title">联系人信息</view>
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input class="form-input" placeholder="请输入联系人姓名" value="{{contactName}}" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">电话</text>
+      <input class="form-input" type="number" placeholder="请输入联系电话" value="{{contactPhone}}" bindinput="onPhoneInput" />
+    </view>
+  </view>
+
+  <!-- 底部支付栏 -->
+  <view class="footer">
+    <view class="total">
+      <text class="total-label">合计：</text>
+      <text class="total-symbol">¥</text>
+      <text class="total-value">{{totalPrice}}</text>
+    </view>
+    <view class="pay-btn" bindtap="onPay">立即支付</view>
+  </view>
+</view>

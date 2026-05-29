@@ -1,0 +1,76 @@
+<view class="page">
+  <!-- 头部用户信息区域 -->
+  <view class="header">
+    <view class="user-info">
+      <view class="avatar-wrapper">
+        <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+        <view class="crown-badge">
+          <image class="crown-icon" src="/images/icon_crown.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      <view class="user-detail">
+        <text class="user-name">{{userInfo.name}}</text>
+        <view class="user-tags">
+          <view class="tag">
+            <image class="tag-icon" src="/images/icon_school.png" mode="aspectFit"></image>
+            <text>{{userInfo.school}}</text>
+          </view>
+          <view class="tag">
+            <image class="tag-icon" src="/images/icon_location.png" mode="aspectFit"></image>
+            <text>{{userInfo.location}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <!-- 我的旅游订单 -->
+    <view class="order-section">
+      <view class="section-header">
+        <text class="section-title">我的旅游订单</text>
+        <view class="view-all" bindtap="goToOrders">
+          <text>全部订单</text>
+          <image class="arrow-icon" src="/images/icon_arrow_right.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      <view class="order-shortcuts">
+        <view 
+          class="shortcut-item" 
+          wx:for="{{orderShortcuts}}" 
+          wx:key="id"
+          data-status="{{item.status}}"
+          bindtap="goToOrderStatus"
+        >
+          <view class="shortcut-icon" style="background-color: {{item.bgColor}}">
+            <image src="{{item.icon}}" mode="aspectFit"></image>
+          </view>
+          <text class="shortcut-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能菜单列表 -->
+    <view class="menu-section">
+      <menu-item 
+        wx:for="{{menuList}}" 
+        wx:key="id"
+        icon="{{item.icon}}"
+        title="{{item.title}}"
+        bgColor="{{item.bgColor}}"
+        badge="{{item.badge}}"
+        url="{{item.url}}"
+      ></menu-item>
+    </view>
+
+    <!-- 校园达人招募卡片 -->
+    <view class="promo-card">
+      <view class="promo-content">
+        <text class="promo-title">校园达人招募中</text>
+        <text class="promo-desc">分享旅游日记，赢取旅行基金</text>
+      </view>
+      <image class="promo-bg" src="/images/icon_magic.png" mode="aspectFit"></image>
+    </view>
+  </scroll-view>
+</view>

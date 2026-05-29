@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "card": "/components/card/card"
+  },
+  "navigationBarTitleText": "趣旅行",
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,135 @@
+<view class="page">
+  <!-- 顶部轮播图 -->
+  <swiper class="banner-swiper" indicator-dots indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#ffffff" autoplay circular>
+    <swiper-item wx:for="{{product.images}}" wx:key="*this">
+      <image class="banner-image" src="{{item}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 商品基本信息 -->
+  <view class="product-info">
+    <view class="price-row">
+      <view class="price">
+        <text class="price-symbol">¥</text>
+        <text class="price-value">{{product.price}}</text>
+        <text class="price-unit">/人起</text>
+      </view>
+      <text class="original-price">¥{{product.originalPrice}}</text>
+    </view>
+    <text class="product-title">{{product.title}}</text>
+    <text class="product-desc">{{product.desc}}</text>
+    
+    <view class="meta-row">
+      <view class="meta-item">
+        <image class="meta-icon" src="/images/icon_clock.png" mode="aspectFit"></image>
+        <text>{{product.duration}}</text>
+      </view>
+      <view class="meta-item">
+        <image class="meta-icon" src="/images/icon_people.png" mode="aspectFit"></image>
+        <text>{{product.count}}</text>
+      </view>
+      <view class="meta-item rating">
+        <image class="meta-icon" src="/images/icon_star.png" mode="aspectFit"></image>
+        <text>{{product.rating}}分</text>
+        <text class="review-count">({{product.reviewCount}}条评价)</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 产品亮点 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>产品亮点</text>
+    </view>
+    <view class="highlights-grid">
+      <view class="highlight-item" wx:for="{{product.highlights}}" wx:key="title">
+        <image class="highlight-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <view class="highlight-content">
+          <text class="highlight-title">{{item.title}}</text>
+          <text class="highlight-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 行程安排 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>行程安排</text>
+    </view>
+    <view class="itinerary-list">
+      <view class="itinerary-item" wx:for="{{product.itinerary}}" wx:key="day">
+        <view class="itinerary-day">{{item.day}}</view>
+        <view class="itinerary-content">
+          <text class="itinerary-title">{{item.title}}</text>
+          <text class="itinerary-desc">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 费用说明 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>费用说明</text>
+    </view>
+    <view class="fee-section">
+      <view class="fee-group">
+        <text class="fee-label">费用包含</text>
+        <view class="fee-tags">
+          <text class="fee-tag included" wx:for="{{product.includes}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+      <view class="fee-group">
+        <text class="fee-label">费用不含</text>
+        <view class="fee-tags">
+          <text class="fee-tag excluded" wx:for="{{product.excludes}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 用户保障 -->
+  <view class="section guarantee-section">
+    <view class="guarantee-item">
+      <image class="guarantee-icon" src="/images/icon_shield.png" mode="aspectFit"></image>
+      <text>随时退款</text>
+    </view>
+    <view class="guarantee-item">
+      <image class="guarantee-icon" src="/images/icon_check.png" mode="aspectFit"></image>
+      <text>真实评价</text>
+    </view>
+    <view class="guarantee-item">
+      <image class="guarantee-icon" src="/images/icon_service.png" mode="aspectFit"></image>
+      <text>24h客服</text>
+    </view>
+  </view>
+
+  <!-- 占位，避免被底部栏遮挡 -->
+  <view class="footer-placeholder"></view>
+
+  <!-- 底部操作栏 -->
+  <view class="footer">
+    <view class="footer-left">
+      <view class="footer-action">
+        <image class="action-icon" src="/images/icon_heart_outline.png" mode="aspectFit"></image>
+        <text>收藏</text>
+      </view>
+      <view class="footer-action">
+        <image class="action-icon" src="/images/icon_share.png" mode="aspectFit"></image>
+        <text>分享</text>
+      </view>
+      <view class="footer-action" bindtap="onContactService">
+        <image class="action-icon" src="/images/icon_headset.png" mode="aspectFit"></image>
+        <text>客服</text>
+      </view>
+    </view>
+    <view class="buy-btn" bindtap="onBuy">
+      <text class="buy-price">¥{{product.price}}</text>
+      <text class="buy-text">立即抢购</text>
+    </view>
+  </view>
+</view>

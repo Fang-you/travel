@@ -1,0 +1,4 @@
+<view class="container">
+  <view class="page-title">查看活动</view>
+  <view class="order-info">关联订单: {{orderId}}</view>
+</view>

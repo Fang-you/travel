@@ -1,0 +1,64 @@
+<view class="page">
+  <!-- 标题栏 -->
+  <view class="header">
+    <view class="header-left">
+      <view class="logo-box">
+        <image class="logo-icon" src="/images/icon_location.png" mode="aspectFit"></image>
+      </view>
+      <text class="app-name">趣旅行</text>
+    </view>
+    <view class="city-selector">
+      <image class="city-icon" src="/images/icon_map.png" mode="aspectFit"></image>
+      <text class="city-name">{{currentCity}}</text>
+      <image class="arrow-icon" src="/images/icon_arrow_down.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 内容区 -->
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <!-- 搜索框组件 -->
+    <search placeholder="寒假去哪儿？搜特价穷游"></search>
+
+    <!-- 轮播图 -->
+    <view class="banner-section">
+      <swiper class="banner-swiper" indicator-dots indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#ffffff" autoplay circular interval="3000">
+        <swiper-item wx:for="{{bannerList}}" wx:key="id">
+          <view class="banner-item">
+            <image class="banner-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="banner-overlay">
+              <view class="banner-title">寒假周边游</view>
+              <view class="banner-subtitle">最高直降 ¥200</view>
+              <view class="banner-tag">2026.01.24 限时开启</view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 热门推荐 -->
+    <view class="recommend-section">
+      <view class="section-header">
+        <text class="section-title">热门推荐</text>
+        <text class="section-more" bindtap="goToHotList">查看更多</text>
+      </view>
+      
+      <!-- 卡片列表 -->
+      <view class="card-list">
+        <card 
+          wx:for="{{cardList}}" 
+          wx:key="id"
+          id="{{item.id}}"
+          image="{{item.image}}"
+          title="{{item.title}}"
+          desc="{{item.desc}}"
+          duration="{{item.duration}}"
+          count="{{item.count}}"
+          price="{{item.price}}"
+          data-id="{{item.id}}"
+          bindtap="onCardTap"
+          bindbuy="onCardBuy"
+        ></card>
+      </view>
+    </view>
+  </scroll-view>
+</view>

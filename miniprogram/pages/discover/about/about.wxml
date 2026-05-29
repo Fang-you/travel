@@ -1,0 +1,100 @@
+<view class="page">
+  <!-- 顶部品牌区域 -->
+  <view class="brand-header">
+    <view class="brand-logo">
+      <image class="logo-icon" src="/images/logo.png" mode="aspectFit"></image>
+    </view>
+    <text class="brand-name">{{companyInfo.name}}</text>
+    <text class="brand-slogan">{{companyInfo.slogan}}</text>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stats-section">
+    <view class="stat-item" wx:for="{{companyInfo.stats}}" wx:key="label">
+      <text class="stat-number">{{item.number}}</text>
+      <text class="stat-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <!-- 公司简介 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>关于我们</text>
+    </view>
+    <view class="intro-content">
+      <view class="intro-item">
+        <text class="intro-label">成立时间</text>
+        <text class="intro-value">{{companyInfo.foundedYear}}年{{companyInfo.foundedMonth}}月</text>
+      </view>
+      <view class="intro-item">
+        <text class="intro-label">企业使命</text>
+        <text class="intro-value">{{companyInfo.mission}}</text>
+      </view>
+      <view class="intro-item">
+        <text class="intro-label">企业愿景</text>
+        <text class="intro-value">{{companyInfo.vision}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心价值观 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>核心价值观</text>
+    </view>
+    <view class="values-grid">
+      <view class="value-item" wx:for="{{companyInfo.values}}" wx:key="title">
+        <image class="value-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="value-title">{{item.title}}</text>
+        <text class="value-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发展历程 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>发展历程</text>
+    </view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{companyInfo.milestones}}" wx:key="event">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <text class="timeline-date">{{item.year}}.{{item.month}}</text>
+          <text class="timeline-event">{{item.event}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="section">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>联系我们</text>
+    </view>
+    <view class="contact-info">
+      <view class="contact-item">
+        <image class="contact-icon" src="/images/icon_location.png" mode="aspectFit"></image>
+        <text class="contact-text">{{companyInfo.contact.address}}</text>
+      </view>
+      <view class="contact-item">
+        <image class="contact-icon" src="/images/icon_email.png" mode="aspectFit"></image>
+        <text class="contact-text">{{companyInfo.contact.email}}</text>
+      </view>
+      <view class="contact-item">
+        <image class="contact-icon" src="/images/icon_phone.png" mode="aspectFit"></image>
+        <text class="contact-text">{{companyInfo.contact.phone}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text class="copyright">© 2020-2026 趣旅行 版权所有</text>
+    <text class="icp">浙ICP备2020XXXXXX号</text>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<view class="card" bindtap="onTap">
+  <view class="card-image-wrapper" style="aspect-ratio: {{aspectRatio}}">
+    <image class="card-image" src="{{image}}" mode="aspectFill"></image>
+    <view class="card-tag" style="background-color: {{tagColor}}">{{tag}}</view>
+  </view>
+  <view class="card-content">
+    <view class="card-title">{{title}}</view>
+    <view class="card-footer">
+      <view class="card-author">
+        <image class="author-avatar" src="{{avatar}}" mode="aspectFill"></image>
+        <text class="author-name">{{author}}</text>
+      </view>
+      <view class="card-likes">
+        <image class="likes-icon" src="/images/icon_heart.png" mode="aspectFit"></image>
+        <text class="likes-count">{{likes}}</text>
+      </view>
+    </view>
+  </view>
+</view>

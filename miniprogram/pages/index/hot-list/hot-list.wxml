@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="header">
+    <text class="header-title">热门推荐</text>
+  </view>
+
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="card-list">
+      <card 
+        wx:for="{{cardList}}" 
+        wx:key="id"
+        id="{{item.id}}"
+        image="{{item.image}}"
+        title="{{item.title}}"
+        desc="{{item.desc}}"
+        duration="{{item.duration}}"
+        count="{{item.count}}"
+        price="{{item.price}}"
+        data-id="{{item.id}}"
+        bindtap="onCardTap"
+        bindbuy="onCardBuy"
+      ></card>
+    </view>
+  </scroll-view>
+</view>

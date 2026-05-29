@@ -1,0 +1,172 @@
+<view class="page">
+  <!-- 标题栏 -->
+  <view class="header">
+    <text class="header-title">发现</text>
+    <view class="header-icons">
+      <image class="header-icon" src="/images/icon_notification.png" mode="aspectFit"></image>
+      <image class="header-icon" src="/images/icon_qrcode.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 内容区 -->
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <!-- 搜索框组件 -->
+    <search placeholder="搜搜穷游特价 / 拼团群..."></search>
+
+    <!-- 分类标签 -->
+    <view class="tabs">
+      <view 
+        class="tab-item {{currentTab === index ? 'active' : ''}}" 
+        wx:for="{{tabs}}" 
+        wx:key="id"
+        data-index="{{index}}"
+        bindtap="onTabChange"
+      >
+        <text class="tab-text">{{item.name}}</text>
+        <view class="tab-indicator" wx:if="{{currentTab === index}}"></view>
+      </view>
+    </view>
+
+    <!-- 攻略瀑布流卡片区域 -->
+    <view class="card-grid" wx:if="{{currentTab === 0}}">
+      <discover-card 
+        wx:for="{{cardList}}" 
+        wx:key="id"
+        image="{{item.image}}"
+        title="{{item.title}}"
+        tag="{{item.tag}}"
+        tagColor="{{item.tagColor}}"
+        avatar="{{item.avatar}}"
+        author="{{item.author}}"
+        likes="{{item.likes}}"
+        aspectRatio="{{item.aspectRatio}}"
+        cardId="{{item.id}}"
+        bindtap="onCardTap"
+      ></discover-card>
+    </view>
+
+    <!-- 特价产品列表 -->
+    <view class="deals-section" wx:if="{{currentTab === 1}}">
+      <view class="deals-header">
+        <text class="deals-title">限时特惠</text>
+        <text class="deals-subtitle">精选价格低于¥400的超值线路</text>
+      </view>
+      <view class="deals-list">
+        <card 
+          wx:for="{{dealsList}}" 
+          wx:key="id"
+          id="{{item.id}}"
+          image="{{item.image}}"
+          title="{{item.title}}"
+          desc="{{item.desc}}"
+          duration="{{item.duration}}"
+          count="{{item.count}}"
+          price="{{item.price}}"
+          bindtap="onDealTap"
+          bindbuy="onDealBuy"
+        ></card>
+      </view>
+    </view>
+
+    <!-- 关于我们内容 -->
+    <view class="about-section" wx:if="{{currentTab === 2}}">
+      <!-- 品牌头部 -->
+      <view class="about-brand">
+        <view class="brand-logo-box">
+          <image class="brand-logo" src="/images/logo.png" mode="aspectFit"></image>
+        </view>
+        <text class="brand-name">{{companyInfo.name}}</text>
+        <text class="brand-slogan">{{companyInfo.slogan}}</text>
+      </view>
+
+      <!-- 数据统计 -->
+      <view class="about-stats">
+        <view class="stat-item" wx:for="{{companyInfo.stats}}" wx:key="label">
+          <text class="stat-number">{{item.number}}</text>
+          <text class="stat-label">{{item.label}}</text>
+        </view>
+      </view>
+
+      <!-- 公司简介 -->
+      <view class="about-card">
+        <view class="card-title">
+          <view class="title-bar"></view>
+          <text>关于我们</text>
+        </view>
+        <view class="intro-list">
+          <view class="intro-item">
+            <text class="intro-label">成立时间</text>
+            <text class="intro-value">{{companyInfo.foundedYear}}年{{companyInfo.foundedMonth}}月</text>
+          </view>
+          <view class="intro-item">
+            <text class="intro-label">企业使命</text>
+            <text class="intro-value">{{companyInfo.mission}}</text>
+          </view>
+          <view class="intro-item">
+            <text class="intro-label">企业愿景</text>
+            <text class="intro-value">{{companyInfo.vision}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 核心价值观 -->
+      <view class="about-card">
+        <view class="card-title">
+          <view class="title-bar"></view>
+          <text>核心价值观</text>
+        </view>
+        <view class="values-grid">
+          <view class="value-item" wx:for="{{companyInfo.values}}" wx:key="title">
+            <image class="value-icon" src="{{item.icon}}" mode="aspectFit"></image>
+            <text class="value-title">{{item.title}}</text>
+            <text class="value-desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 发展历程 -->
+      <view class="about-card">
+        <view class="card-title">
+          <view class="title-bar"></view>
+          <text>发展历程</text>
+        </view>
+        <view class="timeline">
+          <view class="timeline-item" wx:for="{{companyInfo.milestones}}" wx:key="event">
+            <view class="timeline-dot"></view>
+            <view class="timeline-content">
+              <text class="timeline-date">{{item.year}}.{{item.month}}</text>
+              <text class="timeline-event">{{item.event}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 联系我们 -->
+      <view class="about-card">
+        <view class="card-title">
+          <view class="title-bar"></view>
+          <text>联系我们</text>
+        </view>
+        <view class="contact-list">
+          <view class="contact-item">
+            <image class="contact-icon" src="/images/icon_location.png" mode="aspectFit"></image>
+            <text class="contact-text">{{companyInfo.contact.address}}</text>
+          </view>
+          <view class="contact-item">
+            <image class="contact-icon" src="/images/icon_email.png" mode="aspectFit"></image>
+            <text class="contact-text">{{companyInfo.contact.email}}</text>
+          </view>
+          <view class="contact-item">
+            <image class="contact-icon" src="/images/icon_phone.png" mode="aspectFit"></image>
+            <text class="contact-text">{{companyInfo.contact.phone}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部版权 -->
+      <view class="about-footer">
+        <text class="copyright">© 2020-2026 趣旅行 版权所有</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

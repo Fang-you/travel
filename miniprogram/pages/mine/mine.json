@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "menu-item": "/components/menu-item/menu-item"
+  },
+  "navigationBarTitleText": "我的",
+  "navigationStyle": "custom"
+}

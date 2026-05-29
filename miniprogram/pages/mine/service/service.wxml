@@ -1,0 +1,149 @@
+<view class="container">
+  <!-- 客服头像和欢迎语 -->
+  <view class="service-header">
+    <image class="service-avatar" src="/images/icon_service_avatar.png" mode="aspectFit"></image>
+    <text class="service-title">趋旅行客服中心</text>
+    <text class="service-desc">您好，有任何问题请随时联系我们</text>
+  </view>
+
+  <!-- 联系方式卡片 -->
+  <view class="contact-section">
+    <view class="section-title">联系方式</view>
+    
+    <!-- 客服电话 -->
+    <view class="contact-card" bindtap="callPhone">
+      <view class="contact-left">
+        <view class="contact-icon-box phone">
+          <image class="contact-icon" src="/images/icon_phone.png" mode="aspectFit"></image>
+        </view>
+        <view class="contact-info">
+          <text class="contact-label">客服电话</text>
+          <text class="contact-value">400-888-6666</text>
+        </view>
+      </view>
+      <view class="contact-action">
+        <text>立即拨打</text>
+        <image class="arrow-icon" src="/images/icon_arrow_right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 企业微信 -->
+    <view class="contact-card" bindtap="copyWechat">
+      <view class="contact-left">
+        <view class="contact-icon-box wechat">
+          <image class="contact-icon" src="/images/icon_wechat.png" mode="aspectFit"></image>
+        </view>
+        <view class="contact-info">
+          <text class="contact-label">企业微信</text>
+          <text class="contact-value">QuLvXing_Service</text>
+        </view>
+      </view>
+      <view class="contact-action">
+        <text>复制添加</text>
+        <image class="arrow-icon" src="/images/icon_arrow_right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 在线客服 -->
+    <view class="contact-card">
+      <view class="contact-left">
+        <view class="contact-icon-box online">
+          <image class="contact-icon" src="/images/icon_headset.png" mode="aspectFit"></image>
+        </view>
+        <view class="contact-info">
+          <text class="contact-label">在线客服</text>
+          <text class="contact-value">工作时间 9:00-21:00</text>
+        </view>
+      </view>
+      <view class="contact-action">
+        <text>在线咨询</text>
+        <image class="arrow-icon" src="/images/icon_arrow_right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- AI智能客服 -->
+  <view class="ai-section">
+    <view class="section-title">
+      <image class="ai-icon" src="/images/icon_ai.png" mode="aspectFit"></image>
+      <text>AI智能客服</text>
+    </view>
+    
+    <!-- 快捷问题 -->
+    <view class="quick-questions">
+      <view 
+        class="quick-item" 
+        wx:for="{{quickQuestions}}" 
+        wx:key="*this"
+        data-question="{{item}}"
+        bindtap="onQuickQuestion"
+      >{{item}}</view>
+    </view>
+
+    <!-- 聊天区域 -->
+    <scroll-view 
+      class="chat-area" 
+      scroll-y 
+      scroll-into-view="{{scrollToView}}"
+      enhanced
+      show-scrollbar="{{false}}"
+    >
+      <view class="chat-list">
+        <view 
+          class="chat-item {{item.role}}" 
+          wx:for="{{chatList}}" 
+          wx:key="id"
+          id="msg-{{item.id}}"
+        >
+          <image 
+            class="chat-avatar" 
+            src="{{item.role === 'ai' ? '/images/icon_ai_avatar.png' : '/images/avatar.png'}}" 
+            mode="aspectFit"
+          ></image>
+          <view class="chat-bubble">
+            <text class="chat-text">{{item.content}}</text>
+          </view>
+        </view>
+        <view class="chat-item ai" wx:if="{{isTyping}}" id="typing">
+          <image class="chat-avatar" src="/images/icon_ai_avatar.png" mode="aspectFit"></image>
+          <view class="chat-bubble typing">
+            <view class="typing-dot"></view>
+            <view class="typing-dot"></view>
+            <view class="typing-dot"></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 输入区域 -->
+    <view class="input-area">
+      <input 
+        class="chat-input" 
+        placeholder="输入您的问题..." 
+        value="{{inputValue}}"
+        bindinput="onInput"
+        bindconfirm="onSend"
+        confirm-type="send"
+      />
+      <view class="send-btn {{inputValue ? 'active' : ''}}" bindtap="onSend">
+        <image class="send-icon" src="/images/icon_send.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务承诺 -->
+  <view class="promise-section">
+    <view class="promise-item">
+      <image class="promise-icon" src="/images/icon_shield.png" mode="aspectFit"></image>
+      <text>随时退款</text>
+    </view>
+    <view class="promise-item">
+      <image class="promise-icon" src="/images/icon_clock.png" mode="aspectFit"></image>
+      <text>快速响应</text>
+    </view>
+    <view class="promise-item">
+      <image class="promise-icon" src="/images/icon_check.png" mode="aspectFit"></image>
+      <text>专业服务</text>
+    </view>
+  </view>
+</view>

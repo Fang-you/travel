@@ -1,0 +1,51 @@
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  padding: 24rpx 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  margin-bottom: 24rpx;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.icon-wrapper {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #374151;
+}
+
+.badge {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  margin-left: 8rpx;
+}
+
+.arrow {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.3;
+}

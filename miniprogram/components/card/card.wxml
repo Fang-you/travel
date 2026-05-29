@@ -1,0 +1,22 @@
+<view class="card" bindtap="onTap">
+  <view class="card-image-wrapper">
+    <image class="card-image" src="{{image}}" mode="aspectFill"></image>
+    <view class="card-duration">{{duration}}</view>
+  </view>
+  <view class="card-content">
+    <view class="card-info">
+      <view class="card-title">{{title}}</view>
+      <view class="card-desc">{{desc}}</view>
+    </view>
+    <view class="card-footer">
+      <view class="card-stats">
+        <text class="card-count">{{count}}</text>
+        <view class="card-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-value">{{price}}</text>
+        </view>
+      </view>
+      <view class="card-btn" catchtap="onBuy">立即抢</view>
+    </view>
+  </view>
+</view>

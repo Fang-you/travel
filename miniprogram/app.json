@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/discover/discover",
+    "pages/discover/strategy/strategy",
+    "pages/discover/travel/travel",
+    "pages/discover/deals/deals",
+    "pages/discover/local/local",
+    "pages/discover/detail/detail",
+    "pages/order/order",
+    "pages/order/all/all",
+    "pages/order/pending/pending",
+    "pages/order/completed/completed",
+    "pages/order/cancelled/cancelled",
+    "pages/order/pay/pay",
+    "pages/order/order-detail/order-detail",
+    "pages/order/reorder/reorder",
+    "pages/order/activity/activity",
+    "pages/mine/mine",
+    "pages/mine/favorites/favorites",
+    "pages/mine/group/group",
+    "pages/mine/coupon/coupon",
+    "pages/mine/service/service",
+    "pages/mine/settings/settings",
+    "pages/index/hot-list/hot-list",
+    "pages/index/checkout/checkout",
+    "pages/index/product-detail/product-detail",
+    "pages/discover/about/about"
+  ],
+  "window": {
+    "backgroundColor": "#F8FAFC",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "趣旅行",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#94A3B8",
+    "selectedColor": "#2563EB",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab_home.png",
+        "selectedIconPath": "images/tab_home_active.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "images/tab_discover.png",
+        "selectedIconPath": "images/tab_discover_active.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/tab_order.png",
+        "selectedIconPath": "images/tab_order_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab_mine.png",
+        "selectedIconPath": "images/tab_mine_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
